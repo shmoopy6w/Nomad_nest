@@ -1,0 +1,13 @@
+<% layout("/layouts/boilerplate")%>
+<div class="container mt-5">
+        <div class="card">
+            <div class="card-header">
+                <h1 class = "card-title">Profile</h1>
+            </div>
+            <div class="card-body">
+                <p class="card-text"><strong>Username</strong> <%= profile.username %></p>
+                <p class="card-text"><strong>Email </strong> <%= profile.email %></p>
+                <a href="/profile/edit/<%= profile._id %>" class="btn btn-primary">Edit Profile</a>
+              </div>
+        </div>
+    </div>

@@ -1,0 +1,53 @@
+> An attempt to make our session stateful
+> session ke regarding kuch bhi info ko hum server side pr
+  save krwate hai by making a session id
+> express session client side ko sirf session id bhejta hai
+>Aur ye cheex browser mein save hojegi in form of cookies
+
+> Now about basics? Https is stateless protocol 
+  So jab hum website pr ek page se dusre page pr hop krte hai
+  for ex hum electronics page pr the I added airpods in the cart
+  now I move to beauty section and there I add lipstick...
+  do you think airpods would still be in my cart if there is
+  no express session. 
+  The answer is no.
+  Without session these things won't be stored.
+  Only the permanent things are stored in database.
+  Temporary storage mein fir humko ye cheezein save krwani
+  hai. (express sesion)
+
+
+>expression session is basically a npm package
+
+>A very important option in session is "secret"
+>session id a signed cookie , so it must be a secret
+
+> we use our session as a middleware
+app.use(session({
+    secret : "mysupersecretstring",
+    resave : false;
+    saveUninitialized : true,
+ })
+);
+
+> a thing to notice is that if we open same link in two 
+different apps the cookies if we observe carefully are same
+what does this mean? It means that even in same browser it 
+is being treated as same session.
+Backend mein track ho rha hai that it is the same user
+
+>req.session tracks our single session
+>req.session.count helps us find count of how many times
+a request has been made
+
+> Stateful protocol : chances are the req and res are different
+>Stateless protocol : req and res are usually same
+
+>STORING AND USING SESSION INFO
+single session works on different routes
+
+>Connecting Login route
+How to check if user is logged in? 
+req.isAuthenticated()  //passport method
+
+

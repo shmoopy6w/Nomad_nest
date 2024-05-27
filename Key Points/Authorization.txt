@@ -1,0 +1,28 @@
+    Authorization : It talks about which user has the 
+    permission to use various functionalities
+    on website.
+
+    //Now Starting with authorization 
+    how can we do it?
+    1. first is that we can hide the edit and delete button
+    for users who are not owners !
+    2. For doing this we need to know two major things:-
+    a) Who is the owner of a given listing (show.ejs) -> ._id
+    b) Which user is trying to edit/delete 
+    user(currUser stored in res.locals.currUser) -> currUser._id
+
+
+    //setting Authorization for Listings
+    1. We will first find listing owner from the database 
+    and then we will find whether the user trying to update for example
+    a listing has same id as of owner of the listing 
+    kya vo listing ka owner hai bhi ya nhi
+
+
+    //setting Authorization for reviews
+    1) every review shoulf have an author who created 
+    and this author only has the option to delete the review
+
+    2)No user has not logged in into the website can write a review
+    its like saying youtube pr incognito se review daal rhe ho aap jo ki nhi hota
+    

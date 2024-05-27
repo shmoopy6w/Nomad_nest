@@ -1,0 +1,38 @@
+Now once we have signed up  we want to directly or auto  Login
+I dont want that once I sign up and the user is registered in the database , I 
+re login yet again...no that doesn't happen in so many websites.
+so How will I do it?
+LOGIN AFTER SIGNUP :-
+Passport's login method automatically establishes a login session
+We can invoke login to automatically login a user
+
+req.login(registeredUser  , (err) = > {
+    if(err)
+    {
+        next(err);
+    }
+
+    req.flash("sucess" , "Welcome to Nomad Nest!");
+    res.redirect("/listings"); 
+
+})
+
+
+//POST-LOGIN PAGE
+now for example there is a user and they were simply scrolling the site
+they thought of adding a new listings
+when they went to add new listing functionality , we gave them a pop up
+for you need to signup /login before adding listing and stuff...
+now for example this user signs up or logins , usko /listings wala PAGE
+hi dobara render hota hai isn't it inconvenient for the user ? yes it is
+to deal with this what we will do is storing the origianl url
+bole ton jo page user actually mein access krna chahta tha
+in the first place hum log in ke baad same original url pr hi usko 
+redirect krdenge
+
+// path > login > path
+/*
+We store the value of redirecturl in res.locals . 
+Locals variables are available everywhere and passport
+ does not have the authority to tamper the value of res.locals.
+*/

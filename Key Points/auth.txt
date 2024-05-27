@@ -1,0 +1,55 @@
+> Authentication : It is the process of verifying who someone is
+> Authorization : It is the process of verifying what specific applications 
+, files and data a user has access to 
+
+> Signup/Login : part of Authentication
+
+>Reviews for example can only be deleted by those
+users who have created it : This is part of Authorization
+
+>The concept of STORING PASSWORDS
+We never store the passwords as it is. We store their hashed form.
+eg: Password is "helloworld" using hashing function
+ how it is stored? "9fhjdh9387847483793ndmnf89849448nmdnc"
+ converted into a undreadable string - hashed form
+
+ >A sweet thing about hashing function is if input is same 
+ the output is also same. 
+
+ >Password hamare database store nhi hota
+ >Uss password ko hashing function ke through pass 
+ krne pr jo output aata hai vo hashed form store hota hai database mein
+
+ >Important characterstics of Hashing function
+ 1. For every input , there is a fixed output
+ 2. They are one-way functions , we cant get input from output
+ 3.For a different input , there is a different output but of same length
+ 4.Small changes in input should bring large changes in output
+
+ > Different examples of hashing functions:
+ SHA256 , MD5 , CRC , Bcrypt
+
+ > lets talk about salting :
+ It is a technique to protect passwords stored in databases
+ by adding a string of 32 or more characters and then hashing them
+
+> eg : I have a password named "abc" and salt is string lets say ->
+salt = "%?@" and then we add salt which becomes something like 
+abc%?@ and now iss salted password ki hashed form is stored in database
+
+>what does hackers do ? They build reverse lookup tables in which They
+have hashed forms and on basis of that they hack passwords
+
+>So which tool are we going to be using for Authentication and Authorization?
+It is going to be passport (library especially in node.js)
+
+>Passport : is a Express compatible Authentication middleware for Node.js
+ 
+> npm i passport , npm i passport-local , npm i passport-local-mongoose(for mongo db functionality)
+
+>Hum different dtrategies use lr skte hai for Passport but we will use
+the local startegy for now one
+
+
+
+

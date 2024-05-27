@@ -1,0 +1,69 @@
+Cookies
+(web cookies)
+> Http cookies ae small blocks of data created by a
+  web server while a user is browsing a website and
+  placed on th user's computer or other device by 
+  user's web browser
+
+> cookies ka kaam hai sessions ko track krke
+
+> cookies are used for Session management , Personalisation
+  and tracking.
+
+> Real life examples for cookies :- when w use
+ dark mode for website and when we go to some another 
+ page of that websitew dont have to chose dark mode again
+
+ > Similary if I log in to Instagram and I go to some 
+ another page there I dont have to login all over again
+
+
+> How to send cookies ? (in express) 
+app.get("/setcookies" , (req,res) => {
+    res.cookie("hey" , "you");
+    res.cookie("India" , "wins");
+    res.send("we sent a cookie");
+});
+
+//we basically send name value pair
+
+> Next question is how can we parse the cookies?
+cookie-parser package (middleware)
+
+const cookieParser = require("cookieParser");
+app.use(cookieParser());
+
+app.get("/getcookie", (req,res) => {
+    console.dir(req.cookies);
+    res.send("got the cookies!");
+});
+
+app.get("/getCookies" , (req,res) => {
+    let { name = "anonymous"} = req.cookies;
+    res.send(`Hi ${name});
+});
+
+
+> The concept of signed cookies
+
+//kuch seal lg gya kuch sign laga 
+//seal ka mtlb uski integruty maintained hai
+//kisi ne usko tamper nhi kiya hai
+//to save it from unintentional changes
+
+=> Send signed cookie
+   app.use(cookieParser("secretcode"));
+
+   app.get("/getsignedcookie", (req,res) => {
+    res.cookie("color" , "red" , {signed : true});
+    res.send("done");
+   });
+
+=> Verify Signed Cookie
+   app.get("/verify" , (req,res) => {
+    res.send(req.signedCookies);
+   });  
+
+> we get unsigned cookies when we do req.cookies
+
+> we get signed cookies when we do req.signedCookies

@@ -1,0 +1,30 @@
+> CONNECT-FLASH
+The flash is a special area of the session 
+used for storing messages. Messages are 
+written to the flash and cleared after
+ being displayed to the user.
+
+> Asaan bhasha mein messages ko pop up krwane
+ ke liye kaam ata. Vo message jo jldi se dikhe
+ pr page refresh krne ke baad na dikhe. Ex:
+ review created! and then gayab
+
+> single time appear krte hai
+
+> Connect flash is also a middleware 
+usually ye tab use kiya jata hai when we have to
+redirect ke sath use kiya jata hai isko
+
+>What is a better way to use flash?
+res.locals : res.render se humko templates ko render krwate hai
+unke andr agr hume kuch variables ko use krna hai
+ton unn variables ko hum res.locals mei save kr skte hai
+
+> ye helpful tab hoga jb humko different situations ke according
+different messages dikhane hai
+
+> These flash will help us in user authentication
+
+
+
+

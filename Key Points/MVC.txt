@@ -1,0 +1,4 @@
+MVC - > models , views , controllers
+models = > handles core functionality of databases
+views => handles core functionality of frontend
+controller => handles core fucntionality of backend
