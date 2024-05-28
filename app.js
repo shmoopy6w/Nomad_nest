@@ -40,13 +40,16 @@ async function main()
     await mongoose.connect(dbUrl);
 }
 
-app.set("view engine","ejs");
-app.set("views", path.join(__dirname , "views"));
-app.use(express.urlencoded({extended : true}));
-app.use(methodOverride("_method"));
-app.engine('ejs' , ejsMate);
-app.use(express.static(path.join(__dirname , "public")));
+app.engine('ejs', ejsMate);
+app.set('view engine', 'ejs');
+app.set('views', path.join(__dirname, 'views'));
 
+// Middleware to parse URL-encoded data and method override
+app.use(express.urlencoded({ extended: true }));
+app.use(methodOverride('_method'));
+
+// Middleware to serve static files from the "public" directory
+app.use(express.static(path.join(__dirname, 'public')));
 // app.get("/" , (req,res)=>{
 //     res.send("Hi , I am root");
 // });
