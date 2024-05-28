@@ -39,7 +39,9 @@ router.get("/login" , userController.renderLoginForm);
 router.post("/login" , async(req,res,next) => {
     const {username} = req.body;
     const user = await User.findOne({username: username});
-    if(user.status === null || !user.status) {
+    console.log(user)
+    
+    if(user && !user.status) {
         req.flash("error", "Verification failed Please Create a new Account");
         await User.findOneAndDelete({username: username});
         res.redirect("/signup");
